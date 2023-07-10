@@ -5,7 +5,7 @@ FROM node:14-alpine
 WORKDIR /app
 
 # Copy package.json and package-lock.json
-COPY ["package.json", "package-lock.json*", "./"]
+COPY package*.json ./
 
 # Install dependencies
 RUN npm install
@@ -13,8 +13,5 @@ RUN npm install
 # Copy the source code
 COPY . .
 
-# Build the React app
-RUN npm run build
-
-# Set the startup command
+# Set the startup command to start the development server
 CMD ["npm", "start"]
