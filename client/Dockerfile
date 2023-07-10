@@ -5,10 +5,11 @@ FROM node:14-alpine
 WORKDIR /app
 
 # Copy package.json and package-lock.json
-COPY package*.json ./
+# COPY package*.json ./
+COPY ["package.json","package-lock.json*"]
 
 # Install dependencies
-RUN npm ci --only=production
+RUN npm install
 
 # Copy the source code
 COPY . .
