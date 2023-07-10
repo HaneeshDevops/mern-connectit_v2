@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { toast } from "react-toastify";
 
-let localURL = "http://localhost:5000/";
+let localURL = "http://server:5000/";
 let productionURL = "https://connectit.onrender.com/";
 
 let URL =
