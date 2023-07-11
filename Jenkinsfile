@@ -14,6 +14,7 @@ pipeline {
                 // sh 'docker volume create connectit'
                // sh 'cd client && docker build --no-cache -t haneeshdevops/client . && cd ..'
                // sh 'cd server && docker build --no-cache -t haneeshdevops/server . && cd ..'
+                  sh 'docker images'
             }
         }
 
