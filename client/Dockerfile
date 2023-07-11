@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package.json package-lock.json* ./
 
 # Install dependencies
-RUN npm ci --only=production
+RUN npm install
 
 # Copy the source code
 COPY . .
@@ -24,4 +24,3 @@ EXPOSE 3000
 
 # Set the startup command
 CMD ["npm", "start"]
-
