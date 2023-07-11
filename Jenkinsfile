@@ -22,8 +22,8 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'DockerRegistry', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}"
-                    sh 'docker push haneeshdevops/client:latest'
-                    sh 'docker push haneeshdevops/server:latest'
+                    // sh 'docker push haneeshdevops/client:latest'
+                    // sh 'docker push haneeshdevops/server:latest'
                 }
             }
         }
