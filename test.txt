@@ -1,1 +1,2 @@
 v1 testing on azure ubuntu machine : status =
+v2 jenkins pipeline
