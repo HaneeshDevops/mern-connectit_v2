@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('clone') {
             steps {
-                  sh 'git clone https://github.com/HaneeshDevops/mern-connectit_v2.git'
+                  git 'https://github.com/HaneeshDevops/mern-connectit_v2.git'
             }
         }
 
