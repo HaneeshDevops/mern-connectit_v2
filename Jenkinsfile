@@ -33,6 +33,7 @@ pipeline {
         stage('k8s') {
             steps {
                 withKubeConfig([credentialsId: 'k8sgroup']) {
+                    sh 'git clone https://github.com/HaneeshDevops/mern-connectit_v2.git || true'
                     sh 'kubectl apply -f client-deployment.yml'
                     sh 'kubectl apply -f client-service.yml'
                     sh 'kubectl apply -f server-deployment.yml'
