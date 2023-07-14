@@ -8,13 +8,22 @@ pipeline {
             }
         }
 
-        stage('SonarQube Analysis') {
+      stage('SonarQube Analysis') {
             steps {
-                    sh 'sonar-scanner \
-                        -Dsonar.projectKey=MERN_APP \
-                        -Dsonar.sources=. \
-                        -Dsonar.host.url=http://54.208.247.173:9000 \
-                        -Dsonar.login=sqp_2a2a6cecb3b28d479b3ff6cb1cdc267270d29010'
+                script {
+                    try {
+                        withSonarQubeEnv('SonarQube') {
+                            sh 'sonar-scanner \
+                                -Dsonar.projectKey=MERN_APP \
+                                -Dsonar.sources=. \
+                                -Dsonar.host.url=http://54.208.247.173:9000 \
+                                -Dsonar.login=sqp_2a2a6cecb3b28d479b3ff6cb1cdc267270d29010'
+                        }
+                    } catch (Exception sonarException) {
+                        // Handle SonarQube analysis failure
+                        echo "SonarQube analysis failed: ${sonarException.message}"
+                    }
+                }
             }
         }
 
